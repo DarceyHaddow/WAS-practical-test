@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-    
+
     <head>
         <title>News</title>
     </head>
 
-    <body>
-        <h1>School News</h1>
+    <body style='background-color: yellow'>
+        <h1 style ='text-align: center'>School News</h1>
+        <div>
+            <strong>{{ boldmessage }}</strong>
+        </div>
+        <div>
+        {% if pages %}
+            {% for p in pages %}
+                <h1>{{ p.title }}</h1>
+                <p><i>by {{p.author}}. {{p.date}}</i></p>
+                <p>{{p.text}}</p>
+                <br>
+            {% endfor %}
+
+        {% else %}
+            <strong>There is no news right now!</strong>
+        {% endif %}
+        </div>
     </body>
 
 </html>
